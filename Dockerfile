@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy solution and project files
-COPY WeatherApi.sln .
-COPY WeatherApi/WeatherApi.csproj WeatherApi/
+COPY WeatherApi/WeatherApi.sln .
+COPY WeatherApi/WeatherApi/WeatherApi.csproj WeatherApi/
 
 # Restore dependencies
 RUN dotnet restore WeatherApi.sln
