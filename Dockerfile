@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy solution and project files
-COPY WeatherApi/WeatherApi.sln .
+COPY WeatherApi.sln .
 COPY WeatherApi/WeatherApi/WeatherApi.csproj WeatherApi/
 
 # Restore dependencies
@@ -13,7 +13,7 @@ RUN dotnet restore WeatherApi.sln
 COPY . .
 
 # Build and publish
-RUN dotnet publish WeatherApi/WeatherApi.csproj -c Release -o /app/publish
+RUN dotnet publish WeatherApi/WeatherApi/WeatherApi.csproj -c Release -o /app/publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
